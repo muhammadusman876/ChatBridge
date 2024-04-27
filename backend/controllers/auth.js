@@ -47,7 +47,7 @@ exports.signup = async (req, res) => {
             //Generate JWT token here
             generateTokenAndSetCookie(newUser._id, res)
             await newUser.save();
-            
+            //this is response if new user is created and if create it from backend you will this in your console
             res.status(201).json({
                 _id : newUser._id,
                 fullName: newUser.fullName,
