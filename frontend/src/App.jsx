@@ -14,6 +14,7 @@ function App() {
       <div className='p-4 h-screen flex items-center justify-center'>
 
         <Routes>
+        {/* when we logout authUser become null we go to login page */}
         <Route path='/' element={authUser ? <Home /> : <Navigate to={"/login"} />} />
 				<Route path='/login' element={authUser ? <Navigate to='/' /> : <Login />} />
         {/* here we are saying if user is signup then navigate the user to home page */}
