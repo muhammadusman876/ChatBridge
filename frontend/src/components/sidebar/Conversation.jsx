@@ -1,6 +1,7 @@
 import useConversation from "../../zustand/useConversations";
 
 const Conversation = ({conversation, lastIdx, emoji}) => {
+	//because of this we don't need to call props in every component we can use this anywhere
 	const {selectedConversation, setSelectedConversation} =useConversation()
 
 	const isSelected = selectedConversation?._id === conversation._id
