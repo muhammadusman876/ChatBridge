@@ -1,5 +1,6 @@
 const Conversation = require("../models/conversation");
 const Message = require("../models/message");
+const { getReceiverSocketId, io } = require("../socket/socket");
 
 exports.sendMessage = async (req, res) => {
     try {
@@ -43,6 +44,15 @@ exports.sendMessage = async (req, res) => {
 
         //more optimized way, this thing will run in parallel
         await Promise.all([conversation.save(), newMessage.save()])
+
+        //SOCKET IO FUNCTIONALITY WILL GO HERE
+        const receiverSocketId = getReceiverSocketId(receiverId)
+        if (receiverSocketId) {
+            //io.to(<socket_id>).emit() used to send events to specific client 
+            //this it for socket functionality, now we catch this event in frontend "newMessage"
+            io.to(receiverSocketId).emit("newMessage", newMessage)
+        }
+
 
         res.status(201).json(newMessage);
 
