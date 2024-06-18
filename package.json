@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
-    "build": "npm install && npm install -- prefix frontend && npm run build -- prefix frontend"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "autoprefixer": "^10.4.19",
     "nodemon": "^3.1.0",
     "postcss": "^8.4.38",
+    "sass": "^1.77.6",
     "tailwindcss": "^3.4.3"
   }
 }
