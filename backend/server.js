@@ -16,6 +16,8 @@ const __dirname = path.resolve();
 
 dotenv.config();
 
+console.log(`Node start command: node ${process.argv[1]}`);
+
 //Middlewares
 //Will be used to parse the incoming requests with JSON payloads (from req.body)
 //will help extract fields from req.body
