@@ -8,7 +8,7 @@ import { useAuthContext } from "../../context/AuthContext";
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
-  //this is erase the memory of the conversation we selected when we re-login
+  //this is to erase the memory of the conversation we selected when we re-login
   //unmounting means when the is no longer in the browser/view
   useEffect(() => {
     return () => {

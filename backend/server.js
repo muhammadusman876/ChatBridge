@@ -32,26 +32,11 @@ app.use("/api/users", userRoutes);
 // this is used to serve static files such as html css js image file sound file etc
 // path.join gives absolute path to the root folder
 //we basically going into __dirname(which root) then frontend / dist
-// app.use(express.static(path.join(__dirname, "../frontend/dist")))
-
-// //any routes other than mentioned above
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname,"..", "frontend", "dist", "index.html"))
-// })
-
-// app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
-// });
-
 app.use(
   express.static(path.join(__dirname, ".", "Chat", "..", "frontend/dist"))
 );
-console.log(
-  path.join(__dirname, ".", "Chat", "..", "frontend", "dist", "index.html")
-);
 
+//any routes other than mentioned above
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
 });
